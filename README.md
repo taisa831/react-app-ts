@@ -92,7 +92,10 @@ npm install eslint-config-prettier eslint-plugin-prettier --save-dev
 
 ```.vscode/settings.json
 {
-  "editor.formatOnSave": true
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.tslint": true,
+  }
 }
 ```
 
