@@ -2,45 +2,98 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+```
+npx create-react-app@latest react-app-ts --template typescript
+cd react-app-ts
+npm run start
+```
 
-In the project directory, you can run:
+# ESLint
 
-### `npm start`
+```
+npm install eslint --save-dev
+npx eslint --init
+npx eslint --init
+You can also run this command directly using 'npm init @eslint/config'.
+✔ How would you like to use ESLint? · problems
+✔ What type of modules does your project use? · esm
+✔ Which framework does your project use? · react
+✔ Does your project use TypeScript? · No / Yes
+✔ Where does your code run? · browser
+✔ What format do you want your config file to be in? · JSON
+The config that you've selected requires the following dependencies:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+eslint-plugin-react@latest @typescript-eslint/eslint-plugin@latest @typescript-eslint/parser@latest
+✔ Would you like to install them now? · No / Yes
+✔ Which package manager do you want to use? · npm
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# ESLint Plugin
 
-### `npm test`
+```
+npm install eslint-plugin-react-hooks --save-dev
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```.eslintrc.json
+    "rules": {
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error"
+    }
+```
 
-### `npm run build`
+# Prettier
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+npm install prettier --save-dev
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# ESLint と Prettier 統合
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm install eslint-config-prettier eslint-plugin-prettier --save-dev
+```
 
-### `npm run eject`
+## .eslintrc.json 更新
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```.eslintrc.json
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier:recommended"
+    ],
+    "overrides": [
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "react-hooks",
+        "prettier"
+    ],
+    "rules": {
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "error",
+        "prettier/prettier": "error"
+    }
+}
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## VSCode Settings
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```.vscode/settings.json
+{
+  "editor.formatOnSave": true
+}
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+コマンドパレットを開いて `Format Document`
