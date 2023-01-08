@@ -100,3 +100,17 @@ npm install eslint-config-prettier eslint-plugin-prettier --save-dev
 ```
 
 コマンドパレットを開いて `Format Document`
+
+# Storybook
+
+```
+npx sb@latest init
+```
+
+```
+npm run storybook
+```
+
+# For TypeScript Code
+
+https://zenn.dev/cryptobox/articles/d3f952db7bc077
