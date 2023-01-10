@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './App.css'
 import colorData from './color-data.json'
 import { ColorList } from './Components/ColorList'
+import { Todo } from './Components/Todo'
 
 function App() {
   const [colors, setColors] = useState(colorData)
@@ -22,6 +23,8 @@ function App() {
           }}
         />
         {/* <StarRating style={{ backgroundColor: 'lightBlue' }} totalStars={5} /> */}
+        <h2>TODO</h2>
+        <Todo />
       </section>
     </div>
   )
