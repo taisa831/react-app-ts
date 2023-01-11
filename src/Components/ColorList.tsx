@@ -1,4 +1,5 @@
 import { Color } from './Color'
+import { Todo } from './Todo'
 
 type ColorProps = {
   colors: {
@@ -18,15 +19,21 @@ export const ColorList: React.FC<ColorProps> = ({
 }) => {
   if (!colors.length) return <div>No colors Listed.</div>
   return (
-    <div>
-      {colors.map((color) => (
-        <Color
-          key={color.id}
-          {...color}
-          onRemove={onRemoveColor}
-          onRate={onRate}
-        />
-      ))}
-    </div>
+    <>
+      <div>
+        {colors.map((color) => (
+          <Color
+            key={color.id}
+            {...color}
+            onRemove={onRemoveColor}
+            onRate={onRate}
+          />
+        ))}
+      </div>
+      <div>
+        <h2>TODO</h2>
+        <Todo />
+      </div>
+    </>
   )
 }

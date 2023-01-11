@@ -1,15 +1,17 @@
-import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
+import { useTodo } from './providers/TodoProvider'
 
-type Task = {
-  id: string
-  task: string
-  isDone: boolean
-}
+// type Task = {
+//   id: string
+//   task: string
+//   isDone: boolean
+// }
 
 export const Todo: React.FC = () => {
-  const [todoList, setTodoList] = useState<Task[]>([])
-  const [todo, setTodo] = useState('')
+  // const [todoList, setTodoList] = useState<Task[]>([])
+  // const [todo, setTodo] = useState('')
+  const { setTodo, todo, setTodoList, todoList } = useTodo()
+
   const onChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setTodo(e.target.value)
   }
